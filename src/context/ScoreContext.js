@@ -7,6 +7,7 @@ export const ScoreProvider = ({ children }) => {
     const [totalScore, setTotalScore] = useState(0);
     const [totalCoursePar, setTotalCoursePar] = useState(0);
     const [toPar, setToPar] = useState(0);
+    const [roundType, setRoundType] = useState();
 
     const nextHole = (score, par) => {
         setHole(hole + 1);
@@ -15,9 +16,21 @@ export const ScoreProvider = ({ children }) => {
         setToPar(toPar + (parseInt(score) - parseInt(par)));
     };
 
+    const submitRoundType = (type) => {
+        setRoundType(type);
+    };
+
     return (
         <ScoreContext.Provider
-            value={{ hole, totalScore, totalCoursePar, toPar, nextHole }}
+            value={{
+                hole,
+                totalScore,
+                totalCoursePar,
+                toPar,
+                nextHole,
+                submitRoundType,
+                roundType,
+            }}
         >
             {children}
         </ScoreContext.Provider>

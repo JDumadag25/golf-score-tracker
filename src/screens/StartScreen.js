@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import {
     View,
     Text,
@@ -6,8 +6,14 @@ import {
     TouchableOpacity,
     StyleSheet,
 } from 'react-native';
+import ScoreContext from '../context/ScoreContext';
 
 const StartScreen = ({ navigation }) => {
+    const { submitRoundType } = useContext(ScoreContext);
+
+    const setRoundType = (type) => {
+        submitRoundType(type);
+    };
     return (
         <View>
             <View>
@@ -15,11 +21,17 @@ const StartScreen = ({ navigation }) => {
             </View>
 
             <View>
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => setRoundType(18)}
+                >
                     <Text>18 Holes</Text>
                 </TouchableOpacity>
 
-                <TouchableOpacity style={styles.button}>
+                <TouchableOpacity
+                    style={styles.button}
+                    onPress={() => setRoundType(3)}
+                >
                     <Text>9 Holes</Text>
                 </TouchableOpacity>
             </View>

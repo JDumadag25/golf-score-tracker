@@ -8,8 +8,8 @@ import {
 } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
-const GolfScoreScreen = () => {
-    const { hole, totalScore, totalCoursePar, toPar, nextHole } =
+const GolfScoreScreen = ({ navigation }) => {
+    const { hole, totalScore, toPar, nextHole, roundType } =
         useContext(ScoreContext);
 
     const [score, setScore] = useState('');
@@ -19,7 +19,11 @@ const GolfScoreScreen = () => {
         nextHole(score, par);
         setScore('');
         setPar('');
+        if (hole > roundType - 1) {
+            navigation.navigate('Finish Screen');
+        }
     };
+
     return (
         <View>
             <View>
