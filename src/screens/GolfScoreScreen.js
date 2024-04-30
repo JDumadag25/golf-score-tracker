@@ -1,11 +1,5 @@
 import React, { useState, useContext } from 'react';
-import {
-    View,
-    Text,
-    TouchableOpacity,
-    TextInput,
-    StyleSheet,
-} from 'react-native';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const GolfScoreScreen = ({ navigation }) => {
@@ -25,49 +19,40 @@ const GolfScoreScreen = ({ navigation }) => {
     };
 
     return (
-        <View>
-            <View>
-                <Text>
+        <View className="items-center flex-1 m-10  ">
+            <View className="flex ">
+                <Text className="text-3xl">Hole {hole} </Text>
+            </View>
+            <View className="flex  mt-10">
+                <Text className="text-3xl">
                     Current Score: {totalScore} ({toPar}){' '}
                 </Text>
             </View>
-            <View>
-                <Text>Hole {hole} </Text>
-            </View>
-            <View style={styles.inputStyle}>
+
+            <View className="flex-row  mt-10 items-center">
+                <Text className="text-center text-lg pr-5">Par</Text>
                 <TextInput
-                    placeholder="Hole Par"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-20 p-2.5"
                     onChangeText={(newPar) => setPar(newPar)}
                 />
             </View>
-            <View style={styles.inputStyle}>
+            <View className="flex-row mt-10 items-center">
+                <Text className="text-center text-lg pr-4">Score</Text>
                 <TextInput
-                    placeholder="Strokes"
+                    className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-20 p-2.5"
                     onChangeText={(newScore) => setScore(newScore)}
                 />
             </View>
-            <View>
-                <TouchableOpacity style={styles.button} onPress={submitHole}>
-                    <Text>Next</Text>
+            <View className="h-12  mt-9 w-40">
+                <TouchableOpacity
+                    className="bg-green-300 font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center disabled"
+                    onPress={submitHole}
+                >
+                    <Text className="text-center text-lg">Next</Text>
                 </TouchableOpacity>
             </View>
         </View>
     );
 };
-
-const styles = StyleSheet.create({
-    button: {
-        height: 40,
-        width: 80,
-        borderWidth: 2,
-        borderColor: 'red',
-    },
-
-    inputStyle: {
-        borderColor: 'black',
-        borderWidth: 1,
-        height: 30,
-    },
-});
 
 export default GolfScoreScreen;
