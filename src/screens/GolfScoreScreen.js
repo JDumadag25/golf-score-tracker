@@ -34,6 +34,8 @@ const GolfScoreScreen = ({ navigation }) => {
                 <TextInput
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-20 p-2.5"
                     onChangeText={(newPar) => setPar(newPar)}
+                    value={par}
+                    keyboardType="number-pad"
                 />
             </View>
             <View className="flex-row mt-10 items-center">
@@ -41,6 +43,8 @@ const GolfScoreScreen = ({ navigation }) => {
                 <TextInput
                     className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-20 p-2.5"
                     onChangeText={(newScore) => setScore(newScore)}
+                    value={score}
+                    keyboardType="number-pad"
                 />
             </View>
             <View className="h-12  mt-9 w-40">

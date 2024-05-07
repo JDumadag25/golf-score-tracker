@@ -35,7 +35,7 @@ const StartScreen = ({ navigation }) => {
                                 ? `bg-green-300 text-white font-bold py-2 px-4 rounded-full`
                                 : `bg-gray-300 text-white font-bold py-2 px-4 rounded-full`
                         }
-                        onPress={() => setRoundType(9)}
+                        onPress={() => setRoundType(3)}
                     >
                         <Text className="text-center">9 Holes</Text>
                     </TouchableOpacity>
