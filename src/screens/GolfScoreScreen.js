@@ -48,12 +48,21 @@ const GolfScoreScreen = ({ navigation }) => {
                 />
             </View>
             <View className="h-12  mt-9 w-40">
-                <TouchableOpacity
-                    className="bg-green-300 font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center disabled"
-                    onPress={submitHole}
-                >
-                    <Text className="text-center text-lg">Next</Text>
-                </TouchableOpacity>
+                {score && par ? (
+                    <TouchableOpacity
+                        className="bg-green-300 font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center "
+                        onPress={submitHole}
+                    >
+                        <Text className="text-center text-lg">Next</Text>
+                    </TouchableOpacity>
+                ) : (
+                    <TouchableOpacity
+                        className="bg-gray-300 font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center disabled"
+                        disabled={true}
+                    >
+                        <Text className="text-center text-lg">Next</Text>
+                    </TouchableOpacity>
+                )}
             </View>
         </View>
     );
