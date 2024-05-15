@@ -52,14 +52,14 @@ const StartScreen = ({ navigation }) => {
             <View className="h-14 w-32 mt-5  items-center justify-center ">
                 {roundType ? (
                     <TouchableOpacity
-                        className="bg-green-300 active:bg-red-700 text-white font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center disabled"
+                        className="bg-green-300 text-white font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center"
                         onPress={() => navigation.navigate('Score Screen')}
                     >
                         <Text className="text-center text-lg">Play</Text>
                     </TouchableOpacity>
                 ) : (
                     <TouchableOpacity
-                        className="bg-gray-300 active:bg-red-700 text-white font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center disabled"
+                        className="bg-gray-300 text-white font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center disabled"
                         disabled={true}
                     >
                         <Text className="text-center text-lg">Play</Text>

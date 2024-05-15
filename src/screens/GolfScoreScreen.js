@@ -11,11 +11,14 @@ const GolfScoreScreen = ({ navigation }) => {
 
     const submitHole = () => {
         nextHole(score, par);
-        setScore('');
-        setPar('');
+
         if (hole > roundType - 1) {
             navigation.navigate('Finish Screen');
         }
+
+        navigation.push('Score Screen');
+        setScore('');
+        setPar('');
     };
 
     return (
@@ -63,6 +66,23 @@ const GolfScoreScreen = ({ navigation }) => {
                         <Text className="text-center text-lg">Next</Text>
                     </TouchableOpacity>
                 )}
+            </View>
+
+            <View className="mt-5 flex-row p-5 ">
+                <View className=" mr-5  ">
+                    <TouchableOpacity
+                        className={`bg-green-300 text-white font-bold  rounded-full w-24 h-7 justify-center`}
+                    >
+                        <Text className="text-center">Go Back</Text>
+                    </TouchableOpacity>
+                </View>
+                <View>
+                    <TouchableOpacity
+                        className={`bg-green-300 text-white font-bold rounded-full w-24  h-7 justify-center`}
+                    >
+                        <Text className="text-center">End Round</Text>
+                    </TouchableOpacity>
+                </View>
             </View>
         </View>
     );

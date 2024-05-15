@@ -15,6 +15,7 @@ export default function App() {
                     <Stack.Screen
                         name="Score Screen"
                         component={GolfScoreScreen}
+                        options={{ headerBackVisible: false }}
                     />
                     <Stack.Screen
                         name="Finish Screen"
