@@ -1,13 +1,29 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext, useEffect } from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const GolfScoreScreen = ({ navigation }) => {
-    const { hole, totalScore, toPar, nextHole, roundType } =
-        useContext(ScoreContext);
+    const {
+        hole,
+        totalScore,
+        toPar,
+        nextHole,
+        roundType,
+        totalRounds,
+        totalScoreTest,
+        getTotalRoundScores,
+    } = useContext(ScoreContext);
 
     const [score, setScore] = useState('');
     const [par, setPar] = useState('');
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            getTotalRoundScores();
+        });
+
+        return unsubscribe;
+    }, [navigation]);
 
     const submitHole = () => {
         nextHole(score, par);
@@ -23,12 +39,20 @@ const GolfScoreScreen = ({ navigation }) => {
 
     return (
         <View className="items-center flex-1 m-10  ">
-            <View className="flex ">
+            {/* <View className="flex ">
                 <Text className="text-3xl">Hole {hole} </Text>
             </View>
             <View className="flex  mt-10">
                 <Text className="text-3xl">
                     Current Score: {totalScore} ({toPar}){' '}
+                </Text>
+            </View> */}
+            <View className="flex ">
+                <Text className="text-3xl">Hole test {hole} </Text>
+            </View>
+            <View className="flex  mt-10">
+                <Text className="text-3xl">
+                    Current Score Test: {totalScoreTest} ({toPar}){' '}
                 </Text>
             </View>
 
