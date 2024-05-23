@@ -34,19 +34,21 @@ export const ScoreProvider = ({ children }) => {
         let total = 0;
 
         totalRounds.forEach((round) => {
-            console.log(round);
             total = total + (parseInt(round.score) - parseInt(round.par));
         });
         setToParTest(total);
     };
 
+    const goToPreviousHole = () => {
+        setTotalRounds(totalRounds.slice(0, -1));
+    };
+
     return (
         <ScoreContext.Provider
             value={{
-                hole,
                 totalScore,
                 totalCoursePar,
-                toPar,
+                goToPreviousHole,
                 nextHole,
                 submitRoundType,
                 roundType,
