@@ -12,6 +12,8 @@ const GolfScoreScreen = ({ navigation }) => {
         totalRounds,
         totalScoreTest,
         getTotalRoundScores,
+        getToPar,
+        toParTest,
     } = useContext(ScoreContext);
 
     const [score, setScore] = useState('');
@@ -20,6 +22,7 @@ const GolfScoreScreen = ({ navigation }) => {
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
             getTotalRoundScores();
+            getToPar();
         });
 
         return unsubscribe;
@@ -39,20 +42,12 @@ const GolfScoreScreen = ({ navigation }) => {
 
     return (
         <View className="items-center flex-1 m-10  ">
-            {/* <View className="flex ">
-                <Text className="text-3xl">Hole {hole} </Text>
-            </View>
-            <View className="flex  mt-10">
-                <Text className="text-3xl">
-                    Current Score: {totalScore} ({toPar}){' '}
-                </Text>
-            </View> */}
             <View className="flex ">
-                <Text className="text-3xl">Hole test {hole} </Text>
+                <Text className="text-3xl">Hole {totalRounds.length + 1} </Text>
             </View>
             <View className="flex  mt-10">
                 <Text className="text-3xl">
-                    Current Score Test: {totalScoreTest} ({toPar}){' '}
+                    Current Score: {totalScoreTest} ({toParTest}){' '}
                 </Text>
             </View>
 
