@@ -32,13 +32,13 @@ const GolfScoreScreen = ({ navigation }) => {
     const submitHole = () => {
         nextHole(score, par);
 
-        if (hole > roundType - 1) {
+        if (totalRounds.length + 1 === roundType) {
             navigation.navigate('Finish Screen');
+        } else {
+            navigation.push('Score Screen');
+            setScore('');
+            setPar('');
         }
-
-        navigation.push('Score Screen');
-        setScore('');
-        setPar('');
     };
 
     const goBack = () => {

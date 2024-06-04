@@ -24,7 +24,6 @@ export const ScoreProvider = ({ children }) => {
         let total = 0;
 
         totalRounds.forEach((round) => {
-            console.log(round);
             total += parseInt(round.score);
         });
         setTotalScoreTest(total);

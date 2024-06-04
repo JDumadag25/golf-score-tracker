@@ -1,14 +1,24 @@
-import React, { useContext } from 'react';
+import React, { useContext, useEffect } from 'react';
 import { View, Text, TouchableOpacity } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
-const FinishScreen = () => {
-    const { totalScore, toPar } = useContext(ScoreContext);
+const FinishScreen = ({ navigation }) => {
+    const { totalScoreTest, toParTest, getTotalRoundScores, getToPar } =
+        useContext(ScoreContext);
+
+    useEffect(() => {
+        const unsubscribe = navigation.addListener('focus', () => {
+            getTotalRoundScores();
+            getToPar();
+        });
+
+        return unsubscribe;
+    }, [navigation]);
     return (
         <View className="flex-1 justify-center items-center ">
             <View>
                 <Text className="text-3xl">
-                    Final Score: {totalScore} ({toPar})
+                    Final Score: {totalScoreTest} ({toParTest})
                 </Text>
             </View>
             <View className="flex-initial mt-5 h-20 flex-row p-5 ">
