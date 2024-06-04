@@ -3,14 +3,10 @@ import React, { useState } from 'react';
 const ScoreContext = React.createContext();
 
 export const ScoreProvider = ({ children }) => {
-    const [totalScore, setTotalScore] = useState(0);
-    const [totalCoursePar, setTotalCoursePar] = useState(0);
     const [roundType, setRoundType] = useState();
     const [totalRounds, setTotalRounds] = useState([]);
-
-    // testing
-    const [totalScoreTest, setTotalScoreTest] = useState(0);
-    const [toParTest, setToParTest] = useState(0);
+    const [totalScore, setTotalScore] = useState(0);
+    const [toPar, setToPar] = useState(0);
 
     const nextHole = (score, par) => {
         setTotalRounds((prevArray) => [...prevArray, { score, par }]);
@@ -26,7 +22,7 @@ export const ScoreProvider = ({ children }) => {
         totalRounds.forEach((round) => {
             total += parseInt(round.score);
         });
-        setTotalScoreTest(total);
+        setTotalScore(total);
     };
 
     const getToPar = () => {
@@ -35,7 +31,7 @@ export const ScoreProvider = ({ children }) => {
         totalRounds.forEach((round) => {
             total = total + (parseInt(round.score) - parseInt(round.par));
         });
-        setToParTest(total);
+        setToPar(total);
     };
 
     const goToPreviousHole = () => {
@@ -45,17 +41,15 @@ export const ScoreProvider = ({ children }) => {
     return (
         <ScoreContext.Provider
             value={{
-                totalScore,
-                totalCoursePar,
                 goToPreviousHole,
                 nextHole,
                 submitRoundType,
                 roundType,
                 totalRounds,
-                totalScoreTest,
+                totalScore,
                 getTotalRoundScores,
                 getToPar,
-                toParTest,
+                toPar,
             }}
         >
             {children}

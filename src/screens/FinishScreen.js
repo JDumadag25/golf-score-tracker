@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const FinishScreen = ({ navigation }) => {
-    const { totalScoreTest, toParTest, getTotalRoundScores, getToPar } =
+    const { totalScore, toPar, getTotalRoundScores, getToPar } =
         useContext(ScoreContext);
 
     useEffect(() => {
@@ -18,7 +18,7 @@ const FinishScreen = ({ navigation }) => {
         <View className="flex-1 justify-center items-center ">
             <View>
                 <Text className="text-3xl">
-                    Final Score: {totalScoreTest} ({toParTest})
+                    Final Score: {totalScore} ({toPar})
                 </Text>
             </View>
             <View className="flex-initial mt-5 h-20 flex-row p-5 ">

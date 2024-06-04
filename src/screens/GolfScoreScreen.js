@@ -4,16 +4,13 @@ import ScoreContext from '../context/ScoreContext';
 
 const GolfScoreScreen = ({ navigation }) => {
     const {
-        hole,
-        totalScore,
-        toPar,
         nextHole,
         roundType,
         totalRounds,
-        totalScoreTest,
+        totalScore,
         getTotalRoundScores,
         getToPar,
-        toParTest,
+        toPar,
         goToPreviousHole,
     } = useContext(ScoreContext);
 
@@ -53,7 +50,7 @@ const GolfScoreScreen = ({ navigation }) => {
             </View>
             <View className="flex  mt-10">
                 <Text className="text-3xl">
-                    Current Score: {totalScoreTest} ({toParTest}){' '}
+                    Current Score: {totalScore} ({toPar}){' '}
                 </Text>
             </View>
 

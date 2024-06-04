@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const StartScreen = ({ navigation }) => {
