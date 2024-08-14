@@ -12,6 +12,7 @@ const GolfScoreScreen = ({ navigation }) => {
         getToPar,
         toPar,
         goToPreviousHole,
+        endRound,
     } = useContext(ScoreContext);
 
     const [score, setScore] = useState('');
@@ -41,6 +42,11 @@ const GolfScoreScreen = ({ navigation }) => {
     const goBack = () => {
         goToPreviousHole();
         navigation.goBack();
+    };
+
+    const stopRound = () => {
+        endRound();
+        navigation.navigate('Start Screen');
     };
 
     return (
@@ -102,6 +108,7 @@ const GolfScoreScreen = ({ navigation }) => {
                 <View>
                     <TouchableOpacity
                         className={`bg-green-300 text-white font-bold rounded-full w-24  h-7 justify-center`}
+                        onPress={stopRound}
                     >
                         <Text className="text-center">End Round</Text>
                     </TouchableOpacity>

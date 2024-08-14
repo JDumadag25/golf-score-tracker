@@ -38,6 +38,13 @@ export const ScoreProvider = ({ children }) => {
         setTotalRounds(totalRounds.slice(0, -1));
     };
 
+    const endRound = () => {
+        setTotalRounds([]);
+        setTotalScore(0);
+        setToPar(0);
+        setRoundType(0);
+    };
+
     return (
         <ScoreContext.Provider
             value={{
@@ -50,6 +57,7 @@ export const ScoreProvider = ({ children }) => {
                 getTotalRoundScores,
                 getToPar,
                 toPar,
+                endRound,
             }}
         >
             {children}
