@@ -1,5 +1,6 @@
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import SignInScreen from './src/screens/SignInScreen';
 import StartScreen from './src/screens/StartScreen';
 import GolfScoreScreen from './src/screens/GolfScoreScreen';
 import FinishScreen from './src/screens/FinishScreen';
@@ -11,6 +12,10 @@ export default function App() {
         <ScoreProvider>
             <NavigationContainer>
                 <Stack.Navigator>
+                    <Stack.Screen
+                        name="Sign In Screen"
+                        component={SignInScreen}
+                    />
                     <Stack.Screen name="Start Screen" component={StartScreen} />
                     <Stack.Screen
                         name="Score Screen"
