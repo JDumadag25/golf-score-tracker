@@ -9,32 +9,30 @@ import { ScoreProvider } from './src/context/ScoreContext';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
+const Stack = createNativeStackNavigator();
 const RoundStack = createNativeStackNavigator();
 const ScoresStack = createNativeStackNavigator();
+
+const MyTabs = () => {
+    return (
+        <Tab.Navigator>
+            <Tab.Screen name="Start" component={StartScreen} />
+            <Tab.Screen name="Scores" component={ScoresScreen} />
+        </Tab.Navigator>
+    );
+};
 
 export default function App() {
     return (
         <ScoreProvider>
             <NavigationContainer>
-                <RoundStack.Navigator>
-                    {/* <RoundStack.Screen
-                        name="Sign In Screen"
-                        component={SignInScreen}
-                    /> */}
-                    <RoundStack.Screen
-                        name="Start Screen"
-                        component={StartScreen}
-                    />
-                    <RoundStack.Screen
+                <Stack.Navigator>
+                    <Stack.Screen name="Home" component={MyTabs} />
+                    <Stack.Screen
                         name="Score Screen"
                         component={GolfScoreScreen}
-                        options={{ headerBackVisible: false }}
                     />
-                    <RoundStack.Screen
-                        name="Finish Screen"
-                        component={FinishScreen}
-                    />
-                </RoundStack.Navigator>
+                </Stack.Navigator>
             </NavigationContainer>
         </ScoreProvider>
     );

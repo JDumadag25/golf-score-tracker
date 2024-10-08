@@ -71,3 +71,16 @@ const StartScreen = ({ navigation }) => {
 };
 
 export default StartScreen;
+
+// import React, { useContext, useEffect } from 'react';
+// import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+
+// const StartScreen = ({ navigation }) => {
+//     return (
+//         <View className="flex-1 justify-center items-center ">
+//             <Text>Start</Text>
+//         </View>
+//     );
+// };
+
+// export default StartScreen;
