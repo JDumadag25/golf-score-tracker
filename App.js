@@ -10,15 +10,15 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
-const RoundStack = createNativeStackNavigator();
+// const RoundStack = createNativeStackNavigator();
 const ScoresStack = createNativeStackNavigator();
 
-const MyTabs = () => {
+const RoundStack = () => {
     return (
-        <Tab.Navigator>
-            <Tab.Screen name="Start" component={StartScreen} />
-            <Tab.Screen name="Scores" component={ScoresScreen} />
-        </Tab.Navigator>
+        <Stack.Navigator>
+            <Stack.Screen name="StartScreen" component={StartScreen} />
+            <Stack.Screen name="Score Screen" component={GolfScoreScreen} />
+        </Stack.Navigator>
     );
 };
 
@@ -26,13 +26,14 @@ export default function App() {
     return (
         <ScoreProvider>
             <NavigationContainer>
-                <Stack.Navigator>
-                    <Stack.Screen name="Home" component={MyTabs} />
-                    <Stack.Screen
-                        name="Score Screen"
-                        component={GolfScoreScreen}
-                    />
-                </Stack.Navigator>
+                <Tab.Navigator
+                    screenOptions={{
+                        headerShown: false,
+                    }}
+                >
+                    <Tab.Screen name="RoundStack" component={RoundStack} />
+                    <Tab.Screen name="Scores" component={ScoresScreen} />
+                </Tab.Navigator>
             </NavigationContainer>
         </ScoreProvider>
     );
