@@ -3,7 +3,7 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const FinishScreen = ({ navigation }) => {
-    const { totalScore, toPar, getTotalRoundScores, getToPar } =
+    const { totalScore, toPar, getTotalRoundScores, getToPar, saveScore } =
         useContext(ScoreContext);
 
     useEffect(() => {
@@ -23,7 +23,10 @@ const FinishScreen = ({ navigation }) => {
             </View>
             <View className="flex-initial mt-5 h-20 flex-row p-5 ">
                 <View className=" flex-auto mr-5">
-                    <TouchableOpacity className="bg-green-300 text-white font-bold py-2 px-4 rounded-full">
+                    <TouchableOpacity
+                        className="bg-green-300 text-white font-bold py-2 px-4 rounded-full"
+                        onPress={saveScore}
+                    >
                         <Text className="text-center">Save Score</Text>
                     </TouchableOpacity>
                 </View>

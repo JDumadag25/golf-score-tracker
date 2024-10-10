@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import { View, Text, TouchableOpacity } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const StartScreen = ({ navigation }) => {
@@ -12,7 +12,11 @@ const StartScreen = ({ navigation }) => {
     return (
         <View className="flex-1 items-center ">
             <View className="flex-initial mt-10">
-                <Text className="text-3xl">Please select your round type</Text>
+                <Text className="text-3xl">Course Name</Text>
+            </View>
+            <TextInput className="bg-gray-50 border mt-5 border-gray-300 text-gray-900 text-sm rounded-lg block w-72 p-2.5" />
+            <View className="flex-initial mt-10">
+                <Text className="text-3xl">Round type</Text>
             </View>
 
             <View className="flex-initial mt-5 h-20 flex-row p-5 ">
