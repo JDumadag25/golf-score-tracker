@@ -16,7 +16,7 @@ const ScoresStack = createNativeStackNavigator();
 const RoundStack = () => {
     return (
         <Stack.Navigator>
-            <Stack.Screen name="StartScreen" component={StartScreen} />
+            <Stack.Screen name="Start Screen" component={StartScreen} />
             <Stack.Screen name="Score Screen" component={GolfScoreScreen} />
             <Stack.Screen name="Finish Screen" component={FinishScreen} />
         </Stack.Navigator>

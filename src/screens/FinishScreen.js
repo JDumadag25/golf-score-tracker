@@ -3,8 +3,14 @@ import { View, Text, TouchableOpacity } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const FinishScreen = ({ navigation }) => {
-    const { totalScore, toPar, getTotalRoundScores, getToPar, saveScore } =
-        useContext(ScoreContext);
+    const {
+        totalScore,
+        toPar,
+        getTotalRoundScores,
+        getToPar,
+        saveScore,
+        endRound,
+    } = useContext(ScoreContext);
 
     useEffect(() => {
         const unsubscribe = navigation.addListener('focus', () => {
@@ -14,6 +20,17 @@ const FinishScreen = ({ navigation }) => {
 
         return unsubscribe;
     }, [navigation]);
+
+    const saveAndQuit = () => {
+        saveScore();
+        navigation.navigate('Scores');
+    };
+
+    const deleteRound = () => {
+        endRound();
+        navigation.push('Start Screen');
+    };
+
     return (
         <View className="flex-1 justify-center items-center ">
             <View>
@@ -25,13 +42,16 @@ const FinishScreen = ({ navigation }) => {
                 <View className=" flex-auto mr-5">
                     <TouchableOpacity
                         className="bg-green-300 text-white font-bold py-2 px-4 rounded-full"
-                        onPress={saveScore}
+                        onPress={saveAndQuit}
                     >
                         <Text className="text-center">Save Score</Text>
                     </TouchableOpacity>
                 </View>
-                <View className="flex-auto ">
-                    <TouchableOpacity className="bg-green-300 text-white font-bold py-2 px-4 rounded-full">
+                <View className="flex-auto">
+                    <TouchableOpacity
+                        className="bg-green-300 text-white font-bold py-2 px-4 rounded-full"
+                        onPress={deleteRound}
+                    >
                         <Text className="text-center">Delete Round</Text>
                     </TouchableOpacity>
                 </View>
