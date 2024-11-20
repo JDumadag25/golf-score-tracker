@@ -1,7 +1,7 @@
 import React, { useContext, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity } from 'react-native';
 
-const SignInScreen = ({ navigation }) => {
+const SignUpScreen = ({ navigation }) => {
     return (
         <View className="flex-1 justify-center items-center ">
             <Text>Golf Score Tracker</Text>
@@ -21,8 +21,14 @@ const SignInScreen = ({ navigation }) => {
             >
                 <Text>Sign Up</Text>
             </TouchableOpacity>
+            <TouchableOpacity
+                className="bg-green-300 text-white font-bold py-2 px-4 rounded-full"
+                onPress={() => navigation.navigate('Main')}
+            >
+                <Text>TEMP GO TO SCORES</Text>
+            </TouchableOpacity>
         </View>
     );
 };
 
-export default SignInScreen;
+export default SignUpScreen;
