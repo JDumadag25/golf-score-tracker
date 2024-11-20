@@ -11,6 +11,11 @@ import ScoresScreen from './src/screens/ScoresScreen';
 import { ScoreProvider } from './src/context/ScoreContext';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 
+import {
+    SafeAreaProvider,
+    useSafeAreaInsets,
+} from 'react-native-safe-area-context';
+
 const Tab = createBottomTabNavigator();
 const Stack = createNativeStackNavigator();
 const Auth = createNativeStackNavigator();
@@ -49,19 +54,23 @@ const TabNavigator = () => {
 export default function App() {
     return (
         <ScoreProvider>
-            <NavigationContainer>
-                <Stack.Navigator
-                    screenOptions={{
-                        headerShown: false,
-                    }}
-                >
-                    <Stack.Screen name="Auth" component={AuthScreen} />
-                    <Stack.Screen name="Sign In" component={SignInScreen} />
-                    <Stack.Screen name="Sign Up" component={SignUpScreen} />
+            <SafeAreaProvider>
+                <NavigationContainer>
+                    <Stack.Navigator>
+                        <Stack.Screen name="Auth" component={AuthScreen} />
+                        <Stack.Screen
+                            name="Sign In Screen"
+                            component={SignInScreen}
+                        />
+                        <Stack.Screen
+                            name="Sign Up Screen"
+                            component={SignUpScreen}
+                        />
 
-                    <Stack.Screen name="Main" component={TabNavigator} />
-                </Stack.Navigator>
-            </NavigationContainer>
+                        <Stack.Screen name="Main" component={TabNavigator} />
+                    </Stack.Navigator>
+                </NavigationContainer>
+            </SafeAreaProvider>
         </ScoreProvider>
     );
 }
