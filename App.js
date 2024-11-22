@@ -7,6 +7,7 @@ import StartScreen from './src/screens/StartScreen';
 import GolfScoreScreen from './src/screens/GolfScoreScreen';
 import FinishScreen from './src/screens/FinishScreen';
 import ScoresScreen from './src/screens/ScoresScreen';
+import AccountScreen from './src/screens/account/AccountScreen';
 
 import { ScoreProvider } from './src/context/ScoreContext';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
@@ -30,7 +31,11 @@ const AuthStack = () => {
 
 const RoundStack = () => {
     return (
-        <Stack.Navigator>
+        <Stack.Navigator
+            screenOptions={{
+                headerShown: false,
+            }}
+        >
             <Stack.Screen name="Start Screen" component={StartScreen} />
             <Stack.Screen name="Score Screen" component={GolfScoreScreen} />
             <Stack.Screen name="Finish Screen" component={FinishScreen} />
@@ -47,6 +52,7 @@ const TabNavigator = () => {
         >
             <Tab.Screen name="RoundStack" component={RoundStack} />
             <Tab.Screen name="Scores" component={ScoresScreen} />
+            <Tab.Screen name="Account" component={AccountScreen} />
         </Tab.Navigator>
     );
 };
