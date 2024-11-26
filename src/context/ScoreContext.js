@@ -8,6 +8,7 @@ export const ScoreProvider = ({ children }) => {
     const [totalScore, setTotalScore] = useState(0);
     const [toPar, setToPar] = useState(0);
     const [scores, setScores] = useState([]);
+    const [courseName, setCourseName] = useState('');
 
     const nextHole = (score, par) => {
         setTotalRounds((prevArray) => [...prevArray, { score, par }]);
@@ -50,6 +51,10 @@ export const ScoreProvider = ({ children }) => {
         setScores((prevArray) => [...prevArray, totalScore]);
     };
 
+    const submitCourseName = (text) => {
+        setCourseName(text);
+    };
+
     return (
         <ScoreContext.Provider
             value={{
@@ -65,6 +70,8 @@ export const ScoreProvider = ({ children }) => {
                 endRound,
                 saveScore,
                 scores,
+                submitCourseName,
+                courseName,
             }}
         >
             {children}

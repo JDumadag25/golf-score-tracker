@@ -25,12 +25,12 @@ const AuthScreen = ({ navigation }) => {
             <View className="basis-1/2 ">
                 <View className="mx-8 ">
                     <AuthButton
-                        label="Sign Up"
-                        onPress={() => navigation.navigate('Sign Up Screen')}
-                    />
-                    <AuthButton
                         label="Sign In"
                         onPress={() => navigation.navigate('Sign In Screen')}
+                    />
+                    <AuthButton
+                        label="Sign Up"
+                        onPress={() => navigation.navigate('Sign Up Screen')}
                     />
                 </View>
             </View>

@@ -13,6 +13,7 @@ const GolfScoreScreen = ({ navigation }) => {
         toPar,
         goToPreviousHole,
         endRound,
+        courseName,
     } = useContext(ScoreContext);
 
     const [score, setScore] = useState('');
@@ -53,6 +54,7 @@ const GolfScoreScreen = ({ navigation }) => {
         <View className="items-center flex-1 m-10  ">
             <View className="flex ">
                 <Text className="text-3xl">Hole {totalRounds.length + 1} </Text>
+                <Text>{courseName}</Text>
             </View>
             <View className="flex  mt-10">
                 <Text className="text-3xl">

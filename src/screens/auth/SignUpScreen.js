@@ -44,6 +44,7 @@ const SignUpScreen = ({ navigation }) => {
                     >
                         <Text className="text-white">Sign Up</Text>
                     </TouchableOpacity>
+                    {/* TEMPORARY */}
                     <View className="mx-8 ">
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Main')}
@@ -54,6 +55,7 @@ const SignUpScreen = ({ navigation }) => {
                             </Text>
                         </TouchableOpacity>
                     </View>
+                    {/* TEMPORARY */}
                 </View>
             </View>
         </View>

@@ -1,6 +1,7 @@
 import React from 'react';
 import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import AuthButton from '../../components/auth/Button';
 
 const SignInScreen = ({ navigation }) => {
     const insets = useSafeAreaInsets();
@@ -30,12 +31,9 @@ const SignInScreen = ({ navigation }) => {
             </View>
             <View className="basis-1/2  ">
                 <View className="mx-8 ">
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate('Sign In Screen')}
-                        className="items-center justify-center h-11 bg-blue-700 hover:bg-blue-800 focus:outline-none focus:ring-4 focus:ring-blue-300 font-medium rounded-full text-sm px-5 py-2.5 text-center me-2 mb-5 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                    >
-                        <Text className="text-white">Sign In</Text>
-                    </TouchableOpacity>
+                    <AuthButton label="Sign In" />
+
+                    {/* TEMPORARY */}
                     <View className="mx-8 ">
                         <TouchableOpacity
                             onPress={() => navigation.navigate('Main')}
@@ -46,6 +44,7 @@ const SignInScreen = ({ navigation }) => {
                             </Text>
                         </TouchableOpacity>
                     </View>
+                    {/* TEMPORARY */}
                 </View>
             </View>
         </View>

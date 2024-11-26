@@ -3,10 +3,15 @@ import { View, Text, TouchableOpacity, TextInput } from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const StartScreen = ({ navigation }) => {
-    const { submitRoundType, roundType } = useContext(ScoreContext);
+    const { submitRoundType, roundType, submitCourseName } =
+        useContext(ScoreContext);
 
     const setRoundType = (type) => {
         submitRoundType(type);
+    };
+
+    const setCourse = (text) => {
+        submitCourseName(text);
     };
 
     return (
@@ -14,7 +19,10 @@ const StartScreen = ({ navigation }) => {
             <View className="flex-initial mt-10">
                 <Text className="text-3xl">Course Name</Text>
             </View>
-            <TextInput className="bg-gray-50 border mt-5 border-gray-300 text-gray-900 text-sm rounded-lg block w-72 p-2.5" />
+            <TextInput
+                className="bg-gray-50 border mt-5 border-gray-300 text-gray-900 text-sm rounded-lg block w-72 p-2.5"
+                onChangeText={(text) => setCourse(text)}
+            />
             <View className="flex-initial mt-10">
                 <Text className="text-3xl">Round type</Text>
             </View>
