@@ -86,31 +86,6 @@ const StartScreen = ({ navigation }) => {
                     )}
                 </View>
             </View>
-
-            {/* <View className="flex-initial w-full items-center justify-center ">
-                <TextInput
-                    placeholder="Enter Course Par"
-                    className="`w-full bg-neutral-100 dark:bg-neutral-900 border border-black/20 dark:border-white/20 rounded-md h-12 px-4 text-neutral-950 dark:text-neutral-50"
-                />
-            </View> */}
-            {/* 
-            <View className="h-14 w-32 mt-5  items-center justify-center ">
-                {roundType ? (
-                    <TouchableOpacity
-                        className="bg-green-300 text-white font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center"
-                        onPress={() => navigation.navigate('Score Screen')}
-                    >
-                        <Text className="text-center text-lg">Play</Text>
-                    </TouchableOpacity>
-                ) : (
-                    <TouchableOpacity
-                        className="bg-gray-300 text-white font-bold py-2 px-4 rounded-full h-full w-full items-center justify-center disabled"
-                        disabled={true}
-                    >
-                        <Text className="text-center text-lg">Play</Text>
-                    </TouchableOpacity>
-                )}
-            </View> */}
         </View>
     );
 };

@@ -48,7 +48,12 @@ export const ScoreProvider = ({ children }) => {
     };
 
     const saveScore = () => {
-        setScores((prevArray) => [...prevArray, totalScore]);
+        let finalScore = {
+            courseName: courseName,
+            totalScore: totalScore,
+        };
+        setScores((prevArray) => [...prevArray, finalScore]);
+        endRound();
     };
 
     const submitCourseName = (text) => {
