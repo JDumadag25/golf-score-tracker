@@ -2,12 +2,17 @@ import React, { useState } from 'react';
 
 const ScoreContext = React.createContext();
 
+// [{"courseName": "Clearview", "totalScore": 17}, {"courseName": "DOUGLASTON", "totalScore": 12}]
+
 export const ScoreProvider = ({ children }) => {
     const [roundType, setRoundType] = useState();
     const [totalRounds, setTotalRounds] = useState([]);
     const [totalScore, setTotalScore] = useState(0);
     const [toPar, setToPar] = useState(0);
-    const [scores, setScores] = useState([]);
+    const [scores, setScores] = useState([
+        { courseName: 'Clearview', totalScore: 17 },
+        { courseName: 'DOUGLASTON', totalScore: 12 },
+    ]);
     const [courseName, setCourseName] = useState('');
 
     const nextHole = (score, par) => {
