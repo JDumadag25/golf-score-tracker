@@ -23,6 +23,7 @@ const FinishScreen = ({ navigation }) => {
 
     const saveAndQuit = () => {
         saveScore();
+        navigation.popToTop();
         navigation.navigate('Scores');
     };
 
