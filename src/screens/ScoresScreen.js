@@ -1,10 +1,16 @@
 import React, { useContext, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity } from 'react-native';
+import {
+    View,
+    Text,
+    FlatList,
+    TextInput,
+    TouchableOpacity,
+} from 'react-native';
 import ScoreContext from '../context/ScoreContext';
 
 const ScoresScreen = ({ navigation }) => {
     const { scores } = useContext(ScoreContext);
-    console.log('scores', scores);
+    // console.log('scores', scores);
 
     // Remember how to refactor this
     // const scoreMap = () => {
@@ -17,25 +23,30 @@ const ScoresScreen = ({ navigation }) => {
     //         );
     //     });
     // };
+    const ScoreCard = ({ score }) => {
+        console.log('score', score.item);
+        return (
+            <View className="flex-row block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 w-full mb-5 ">
+                <View className="basis-1/4  justify-center items-center">
+                    <Text className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                        {score.item.totalScore}
+                    </Text>
+                </View>
+                <View className="basis-3/4 ">
+                    <Text className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
+                        {score.item.courseName}{' '}
+                    </Text>
+                </View>
+            </View>
+        );
+    };
 
     return (
         <View className="flex-1 justify-center items-center m-5">
-            {scores.map((score) => {
-                return (
-                    <View className="flex-row block rounded-lg bg-white p-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] dark:bg-neutral-700 w-full mb-5 ">
-                        <View className="basis-1/4  justify-center items-center">
-                            <Text className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                                {score.totalScore}
-                            </Text>
-                        </View>
-                        <View className="basis-3/4 ">
-                            <Text className="mb-2 text-xl font-medium leading-tight text-neutral-800 dark:text-neutral-50">
-                                {score.courseName}{' '}
-                            </Text>
-                        </View>
-                    </View>
-                );
-            })}
+            <FlatList
+                data={scores}
+                renderItem={(score) => <ScoreCard score={score} />}
+            />
         </View>
     );
 };

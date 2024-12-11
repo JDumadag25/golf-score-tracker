@@ -11,7 +11,13 @@ export const ScoreProvider = ({ children }) => {
     const [toPar, setToPar] = useState(0);
     const [scores, setScores] = useState([
         { courseName: 'Clearview', totalScore: 17 },
-        { courseName: 'DOUGLASTON', totalScore: 12 },
+        { courseName: 'Marine Park', totalScore: 15 },
+        { courseName: 'Pebble Beach', totalScore: 12 },
+        { courseName: 'Augusta National', totalScore: 12 },
+        { courseName: 'Van Courtland', totalScore: 17 },
+        { courseName: 'Hilltop', totalScore: 12 },
+        { courseName: 'Bally Links', totalScore: 17 },
+        { courseName: 'Dyker Heights', totalScore: 12 },
     ]);
     const [courseName, setCourseName] = useState('');
 
